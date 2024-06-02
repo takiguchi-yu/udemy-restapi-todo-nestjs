@@ -1,6 +1,6 @@
 ## Udemy
 
-[NestJS + Next.js によるフルスタックWeb開発](https://www.udemy.com/course/nestjs-nextjs-restapi-react/)
+[NestJS + Next.js によるフルスタック Web 開発](https://www.udemy.com/course/nestjs-nextjs-restapi-react/)
 
 ## 動作環境
 
@@ -11,4 +11,3 @@ v20.13.0
 9.1.2
 10.3.2
 ```
-
