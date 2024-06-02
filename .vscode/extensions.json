@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "42Crunch.vscode-openapi",
+    "AlexShen.classdiagram-ts",
+    "amazonwebservices.aws-toolkit-vscode",
+    "DavidAnson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "hediet.vscode-drawio",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzhang.markdown-all-in-one"
+  ]
+}
