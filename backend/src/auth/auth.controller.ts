@@ -1,20 +1,26 @@
 import {
-  Body,
   Controller,
+  Post,
+  Body,
   HttpCode,
   HttpStatus,
-  Post,
-  Req,
   Res,
+  Req,
+  Get,
 } from '@nestjs/common';
-import { Response } from 'express';
-import { AuthService } from 'src/auth/auth.service';
-import { AuthDto } from 'src/auth/dto/auth.dto';
-import { Msg } from 'src/auth/interfaces/auth.interface';
+import { Request, Response } from 'express';
+import { AuthService } from './auth.service';
+import { AuthDto } from './dto/auth.dto';
+import { Csrf, Msg } from './interfaces/auth.interface';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
+
+  @Get('/csrf')
+  getCsrfToken(@Req() req: Request): Csrf {
+    return { csrfToken: req.csrfToken() };
+  }
 
   @Post('signup')
   signUp(@Body() dto: AuthDto): Promise<Msg> {
@@ -30,7 +36,7 @@ export class AuthController {
     const jwt = await this.authService.login(dto);
     res.cookie('access_token', jwt.accessToken, {
       httpOnly: true,
-      secure: false,
+      secure: false, // for development
       sameSite: 'none',
       path: '/',
     });

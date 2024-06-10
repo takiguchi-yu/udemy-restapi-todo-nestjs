@@ -10,9 +10,23 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3005'],
   });
   app.use(cookieParser());
-  await app.listen(3000);
+  app.use(
+    csurf({
+      cookie: {
+        httpOnly: true,
+        sameSite: 'none',
+        // secure: process.env.NODE_ENV === 'production',
+        secure: false, // for development
+      },
+      value: (req: Request) => {
+        const token = req.cookies['csrf-token'];
+        return token;
+      },
+    }),
+  );
+  await app.listen(process.env.PORT || 3005);
 }
 bootstrap();
