@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Canvas from "../components/Canvas";
 import styles from "../styles/Home.module.css";
-import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "with-jotai",
@@ -13,6 +12,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}><a href="https://github.com/vercel/next.js/tree/canary/examples/with-jotai" target="_blank">With Jotai example</a></h1>
+      <h2 className={styles.subtitle}><a href="/todo">TODO</a></h2>
       <main className={styles.main}>
         <Canvas />
       </main>
